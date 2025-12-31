@@ -5,6 +5,8 @@ import Logo from "@/public/Logo.png"
 import { ThemeToggle } from "@/components/ui/themeToggle";
 import { authClient } from "@/lib/auth-client";
 import { buttonVariants } from "@/components/ui/button";
+import { UserDropDown } from "./UserDropdown";
+
 
 const navigationItems = [
     {name: 'Home', href: '/'},
@@ -31,7 +33,7 @@ export function Navbar() {
                         
 
                         {isPending ? null : session ? (
-                            <p>hello user</p>
+                            <UserDropDown email={session.user.email} image={session.user.image || ""}  name={session.user.name}/>
                         ): (
                             <>
                             <Link href={"/login"} className={buttonVariants({ variant: "secondary"})}>Login</Link>
@@ -41,6 +43,7 @@ export function Navbar() {
                         )}
 
                         <ThemeToggle/>
+                        
                     </div>
                 </nav>
             </div>

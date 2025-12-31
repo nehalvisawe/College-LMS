@@ -1,9 +1,9 @@
+"use client"
 import {
-  BoltIcon,
-  BookOpenIcon,
-  Layers2Icon,
+  BookOpen,
+  Home,
+  LayoutDashboard,
   LogOutIcon,
-  PinIcon,
   UserPenIcon,
 } from "lucide-react";
 
@@ -22,55 +22,78 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import router from "next/router";
+import { toast } from "sonner";
 
-export default function UserMenu() {
+interface iAppProps {
+    name: string;
+    email: string;
+    image: string;
+}
+export function UserDropDown({ name, email, image }: iAppProps) {
+   async function signOut() {
+    await authClient.signOut({
+      fetchOptions: {
+      onSuccess: () => {
+        router.push("/"); // redirect to login page
+        toast.success('logged out successfully')
+    },
+    onError: () => {
+      toast.error("Failed to Signed Out")
+    }
+  },
+});
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button className="h-auto p-0 hover:bg-transparent" variant="ghost">
           <Avatar>
-            <AvatarImage alt="Profile image" src="/origin/avatar.jpg" />
-            <AvatarFallback>KK</AvatarFallback>
+            <AvatarImage alt="Profile image" src={image} />
+            <AvatarFallback>{name[0].toUpperCase()}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="max-w-64">
         <DropdownMenuLabel className="flex min-w-0 flex-col">
           <span className="truncate font-medium text-foreground text-sm">
-            Keith Kennedy
+            {name}
           </span>
           <span className="truncate font-normal text-muted-foreground text-xs">
-            k.kennedy@coss.com
+           {email}
           </span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <BoltIcon aria-hidden="true" className="opacity-60" size={16} />
-            <span>Option 1</span>
+          <DropdownMenuItem asChild>
+            <Link href="/" >
+               <Home aria-hidden="true" className="opacity-60" size={16} />
+               <span>Home</span>
+            </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Layers2Icon aria-hidden="true" className="opacity-60" size={16} />
-            <span>Option 2</span>
+          <DropdownMenuItem asChild>
+            <Link href="/courses">
+              <BookOpen aria-hidden="true" className="opacity-60" size={16} />
+              <span>Courses</span>
+            </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <BookOpenIcon aria-hidden="true" className="opacity-60" size={16} />
-            <span>Option 3</span>
+          <DropdownMenuItem asChild>
+            <Link href="/dashboard">
+              <LayoutDashboard aria-hidden="true" className="opacity-60" size={16} />
+              <span>DashBoard</span>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/profile-edit">
+              <UserPenIcon aria-hidden="true" className="opacity-60" size={16} />
+              <span>Edit Profile</span>
+            </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <PinIcon aria-hidden="true" className="opacity-60" size={16} />
-            <span>Option 4</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <UserPenIcon aria-hidden="true" className="opacity-60" size={16} />
-            <span>Option 5</span>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={signOut}>
           <LogOutIcon aria-hidden="true" className="opacity-60" size={16} />
           <span>Logout</span>
         </DropdownMenuItem>
