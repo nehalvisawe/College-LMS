@@ -1,7 +1,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 import Link from "next/link";
 
@@ -67,6 +67,22 @@ export default function Home() {
                     </Card>
                 ))}
         </section>
+
+        //add a section for testimonials and reviews from students and teachers who have used the platform, highlighting their positive experiences and the impact it has had on their learning journey.
+        // use shadcn cards to display the testimonials in an attractive and organized manner, including the user's name, their role (student or teacher), and their feedback about the platform.
+
+        <section className="py-20 bg-muted">
+            <div className="flex flex-col items-center text-center space-y-8">
+                <Badge variant={"outline"}> Testimonials </Badge>
+                <h2 className="text-3xl font-bold">What Our Users Say</h2>
+                <p className="max-w-[700] text-muted-foreground">
+                    Don't just take our word for it. Here's what students and teachers have to say about their experience with our platform.
+                </p>
+            </div>
+           
+
+        </section>
+
     </>
   );
 }
