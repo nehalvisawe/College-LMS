@@ -1,101 +1,86 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+import { 
+  Card, 
+  CardHeader, 
+  CardTitle, 
+  CardContent 
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Megaphone, Calendar, Bell } from 'lucide-react';
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Bell, Calendar, Megaphone, Info } from 'lucide-react';
 
-// Mock data structure - this would eventually come from your MongoDB 'Announcements' collection
-const announcements = [
+const notifications = [
   {
     id: 1,
-    title: "End Semester Exam Schedule Out",
-    content: "The timetable for the May 2026 End-Sem examinations has been uploaded to the official portal. Please check your respective department sections.",
-    sender: { name: "Exam Cell", image: "" },
-    date: "2 hours ago",
-    type: "Exam",
-    priority: "high"
+    type: 'Update',
+    title: 'New Notes Uploaded',
+    desc: 'Unit 3 notes for Computer Networks are now available.',
+    time: '10m ago',
+    icon: <Info className="w-4 h-4 text-blue-500" />,
+    color: 'border-l-blue-500'
   },
-  
+  {
+    id: 2,
+    type: 'Event',
+    title: 'DevOps Workshop',
+    desc: 'Register for the upcoming hands-on workshop this Saturday.',
+    time: '2h ago',
+    icon: <Megaphone className="w-4 h-4 text-purple-500" />,
+    color: 'border-l-purple-500'
+  },
+  {
+    id: 3,
+    type: 'Deadline',
+    title: 'Submission Reminder',
+    desc: 'DBMS Micro-project submission deadline is tomorrow.',
+    time: '5h ago',
+    icon: <Calendar className="w-4 h-4 text-rose-500" />,
+    color: 'border-l-rose-500'
+  }
 ];
 
-const AnnouncementSection = () => {
+export default function AnnouncementFeed() {
   return (
-    <div className="space-y-6">
-      {/* Section Header */}
-      <div className="flex items-center justify-between">
+    <Card className="border-none shadow-sm ring-1 ring-slate-200">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
         <div className="flex items-center gap-2">
-          <div className="p-2 bg-blue-50 rounded-lg text-gray-600">
-            <Bell size={20} />
-          </div>
-          <div>
-            <h2 className="text-xl font-bold text-white">Announcements</h2>
-            <p className="text-sm text-slate-500">Stay updated with the latest college news</p>
-          </div>
+          <Bell className="w-5 h-5 text-slate-500" />
+          <CardTitle className="text-lg font-bold">Announcements</CardTitle>
         </div>
-        <Badge variant="outline" className="text-slate-500 font-normal">
-          {announcements.length} Updates
-        </Badge>
-      </div>
-
-      {/* Announcements List */}
-      <div className="grid gap-4">
-        {announcements.map((item) => (
-          <Card key={item.id} className="border-none shadow-sm ring-1 ring-slate-200 hover:ring-blue-200 transition-all">
-            <CardHeader className="p-4 pb-2">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-9 w-9 border">
-                    <AvatarImage src={item.sender.image} />
-                    <AvatarFallback className="bg-slate-100 text-xs font-bold text-slate-600">
-                      {item.sender.name.substring(0, 2).toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <CardTitle className="text-base font-semibold leading-none mb-1">
-                      {item.title}
-                    </CardTitle>
-                    <div className="flex items-center gap-2 text-xs text-slate-400">
-                      <span className="font-medium text-slate-600">{item.sender.name}</span>
-                      <span>•</span>
-                      <div className="flex items-center gap-1">
-                        <Calendar size={12} />
-                        {item.date}
-                      </div>
-                    </div>
+        <button className="text-xs font-medium text-blue-600 hover:underline">
+          Mark all as read
+        </button>
+      </CardHeader>
+      <CardContent className="p-0">
+        <ScrollArea className="h-[400px] px-4 pb-4">
+          <div className="space-y-3">
+            {notifications.map((note) => (
+              <div 
+                key={note.id} 
+                className={`p-3  border border-slate-100 rounded-lg border-l-4 ${note.color} hover:bg-slate-25 transition-colors cursor-pointer`}
+              >
+                <div className="flex justify-between items-start mb-1">
+                  <div className="flex items-center gap-2">
+                    {note.icon}
+                    <span className="text-sm font-semibold text-white">{note.title}</span>
                   </div>
+                  <span className="text-[10px] text-slate-400 font-medium whitespace-nowrap">
+                    {note.time}
+                  </span>
                 </div>
-                <Badge 
-                  variant="secondary" 
-                  className={`text-[10px] uppercase tracking-wider ${
-                    item.type === 'Exam' ? 'bg-red-50 text-red-700' : 
-                    item.type === 'Event' ? 'bg-blue-50 text-blue-700' : 
-                    'bg-slate-100 text-slate-600'
-                  }`}
-                >
-                  {item.type}
-                </Badge>
+                <p className="text-xs text-slate-500 leading-relaxed pl-6">
+                  {note.desc}
+                </p>
+                <div className="pl-6 mt-2">
+                  <Badge variant="secondary" className="text-[9px] px-1.5 py-0 uppercase tracking-tighter">
+                    {note.type}
+                  </Badge>
+                </div>
               </div>
-            </CardHeader>
-            <CardContent className="p-4 pt-0">
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {item.content}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-      
-      <button className="w-full py-3 text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors bg-slate-50 rounded-lg border border-dashed border-slate-300">
-        View Past Announcements
-      </button>
-    </div>
+            ))}
+          </div>
+        </ScrollArea>
+      </CardContent>
+    </Card>
   );
-};
-
-export default AnnouncementSection;
+}

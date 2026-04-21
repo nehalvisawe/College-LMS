@@ -68,8 +68,7 @@ export default function Home() {
                 ))}
         </section>
 
-        //add a section for testimonials and reviews from students and teachers who have used the platform, highlighting their positive experiences and the impact it has had on their learning journey.
-        // use shadcn cards to display the testimonials in an attractive and organized manner, including the user's name, their role (student or teacher), and their feedback about the platform.
+        
 
         <section className="py-20 bg-muted">
             <div className="flex flex-col items-center text-center space-y-8">
@@ -82,6 +81,8 @@ export default function Home() {
            
 
         </section>
+
+        
 
     </>
   );

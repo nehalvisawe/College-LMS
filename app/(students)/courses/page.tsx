@@ -31,7 +31,7 @@ const courseCategories = [
     footer: 'Exam Prep',
     tag: 'Career',
     color: 'bg-orange-50',
-    link: '/courses/competitive'
+    link: '/courses/compititive-exam'
   },
   {
     id: 'other-resources',
