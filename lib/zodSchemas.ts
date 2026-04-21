@@ -13,6 +13,8 @@ export const courseSchema = z.object(
         unit3_url: z.string().min(1, "Unit 3 URL is required"),
         unit4_url: z.string().min(1, "Unit 4 URL is required"),
         unit5_url: z.string().min(1, "Unit 5 URL is required"),
-        
+
     }
 )
+
+export type CourseSchemaType = z.infer<typeof courseSchema>;

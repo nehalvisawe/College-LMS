@@ -2,18 +2,23 @@
 
 import * as React from "react"
 import {
+  IconBell,
   IconBook2,
   IconCamera,
   IconChartBar,
   IconDashboard,
   IconDatabase,
+  IconFile,
   IconFileAi,
   IconFileDescription,
+  IconFileSpreadsheet,
   IconFileWord,
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
   IconListDetails,
+  IconMessage2,
+  IconMessage2Bolt,
   IconReport,
   IconSearch,
   IconSettings,
@@ -34,6 +39,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { BookOpen } from "lucide-react"
+import Link from "next/link"
 
 const data = {
   navMain: [
@@ -44,23 +50,28 @@ const data = {
     },
     {
       title: "Courses",
-      url: "/admin/courses",
+      url: "/courses",
       icon: IconBook2,
     },
     {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
+      title: "Chat",
+      url: "/chat",
+      icon: IconMessage2,
     },
     {
-      title: "Projects",
-      url: "#",
-      icon: IconFolder,
+      title: "DSA Sheet",
+      url: "/dsa-sheet",
+      icon: IconFileSpreadsheet,
     },
     {
-      title: "Team",
-      url: "#",
+      title: "Placement Preparation",
+      url: "/placement-preparation",
       icon: IconUsers,
+    },
+    {
+      title: "Announcements",
+      url: "/announcements",
+      icon: IconBell,
     },
   ],
   navClouds: [
@@ -141,10 +152,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
-              <a href="#">
+              <Link href="/">
                 <IconInnerShadowTop className="size-5!" />
                 <span className="text-base font-semibold">College LMS</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
