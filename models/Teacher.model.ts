@@ -5,16 +5,18 @@ import { Document, Schema } from "mongoose";
 export interface Teacher extends Document {
     id: string,
     email: string,
-    courses: object,
+    password: string,
+    courses: [string],
     department: string,
     sub_department: string,
+    year_of_teaching: string,
     is_verified: boolean
 }
 
 const TeacherSchema: Schema<Teacher> = new Schema({
     id: String,
     email: String,
-    courses: Array,
+    courses: [String],
     department: String,
     sub_department: String,
     is_verified: Boolean,

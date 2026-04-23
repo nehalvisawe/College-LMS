@@ -38,7 +38,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { BookOpen } from "lucide-react"
+import { BookOpen, FeatherIcon } from "lucide-react"
 import Link from "next/link"
 
 const data = {
@@ -153,7 +153,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
               <Link href="/">
-                <IconInnerShadowTop className="size-5!" />
+                <FeatherIcon className="size-5!" />
                 <span className="text-base font-semibold">College LMS</span>
               </Link>
             </SidebarMenuButton>

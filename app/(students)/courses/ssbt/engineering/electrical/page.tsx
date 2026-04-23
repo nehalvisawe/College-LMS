@@ -21,39 +21,39 @@ const academicYears = [
   {
     id: 'year-1',
     title: '1st Year',
-    description: 'Foundation courses including Engineering Mathematics, Physics, and Basic Programming.',
+    description: 'Foundation',
     icon: <Sparkles className="w-5 h-5 text-yellow-600" />,
     tag: 'Foundation',
     color: 'bg-yellow-50',
-    link: '/courses/ssbt/engineering/computer/fy'
+    link: '/courses/ssbt/engineering/electrical/fy'
     
   },
   {
     id: 'year-2',
     title: '2nd Year',
-    description: 'Core departmental subjects, Data Structures, and Object Oriented Programming.',
+    description: 'Core concepts',
     icon: <Layers className="w-5 h-5 text-blue-600" />,
     tag: 'Core',
     color: 'bg-blue-50',
-    link: '/courses/ssbt/engineering/computer/sy'
+    link: '/courses/ssbt/engineering/electrical/sy'
   },
   {
     id: 'year-3',
     title: '3rd Year',
-    description: 'Advanced technical modules, System Design, and specialization electives.',
+    description: 'Advanced topics',
     icon: <BookMarked className="w-5 h-5 text-purple-600" />,
     tag: 'Advanced',
     color: 'bg-purple-50',
-    link: '/courses/ssbt/engineering/computer/ty'
+    link: '/courses/ssbt/engineering/electrical/ty'
   },
   {
     id: 'year-4',
     title: '4th Year',
-    description: 'Final year projects, Internship preparation, and Cloud/DevOps specializations.',
+    description: 'Final year',
     icon: <GraduationCap className="w-5 h-5 text-emerald-600" />,
     tag: 'Professional',
     color: 'bg-emerald-50',
-    link: '/courses/ssbt/engineering/computer/ly'
+    link: '/courses/ssbt/engineering/electrical/ly'
   }
 ];
 
