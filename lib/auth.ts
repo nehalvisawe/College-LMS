@@ -60,4 +60,6 @@ export const auth = betterAuth({
   //     console.log(`Send verify link to ${user.email}: ${url}`);
   //   },
   // },
+
+  plugins:[]
 });
