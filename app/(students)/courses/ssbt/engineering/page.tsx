@@ -36,7 +36,7 @@ const engineeringBranches = [
     icon: <Settings className="w-5 h-5 text-slate-600" />,
     tag: 'Core',
     color: 'bg-slate-50',
-    link: '/courses/ssbt/engineering/mech'
+    link: '/courses/ssbt/engineering/mechanical'
   },
   {
     id: 'civil',

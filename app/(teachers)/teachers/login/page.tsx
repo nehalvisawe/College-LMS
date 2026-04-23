@@ -23,10 +23,8 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // If user is already logged in, redirect to dashboard
-  const session = authClient.useSession();
-  
-    if (session) redirect("/teachers");
+
+
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
