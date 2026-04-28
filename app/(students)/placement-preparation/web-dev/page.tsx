@@ -21,7 +21,6 @@ type Resource = {
 type Subject = {
   name: string;
   tag: string;
-  description: string;
   resources: Resource[];
 };
 
@@ -29,7 +28,6 @@ const subjects: Subject[] = [
   {
     name: "HTML & CSS Fundamentals",
     tag: "HTML",
-    description: "Semantic HTML, Flexbox, Grid, responsive design",
     resources: [
       {
         label: "HTML Full Course – Chai aur Code",
@@ -56,7 +54,6 @@ const subjects: Subject[] = [
   {
     name: "JavaScript",
     tag: "JS",
-    description: "ES6+, closures, promises, event loop, DOM",
     resources: [
       {
         label: "JavaScript Full Course – Chai aur Code",
@@ -88,7 +85,6 @@ const subjects: Subject[] = [
   {
     name: "React.js",
     tag: "REACT",
-    description: "Hooks, state management, context, React Router",
     resources: [
       {
         label: "React Full Course – Chai aur Code",
@@ -120,7 +116,6 @@ const subjects: Subject[] = [
   {
     name: "Node.js & Express",
     tag: "NODE",
-    description: "REST APIs, middleware, authentication, file system",
     resources: [
       {
         label: "Node.js Full Course – Chai aur Code",
@@ -147,7 +142,6 @@ const subjects: Subject[] = [
   {
     name: "MongoDB & Databases",
     tag: "DB",
-    description: "MongoDB, Mongoose, aggregation, SQL basics",
     resources: [
       {
         label: "MongoDB Full Course – Chai aur Code",
@@ -174,7 +168,6 @@ const subjects: Subject[] = [
   {
     name: "TypeScript",
     tag: "TS",
-    description: "Types, interfaces, generics, utility types",
     resources: [
       {
         label: "TypeScript Full Course – Chai aur Code",
@@ -201,7 +194,6 @@ const subjects: Subject[] = [
   {
     name: "Next.js",
     tag: "NEXT",
-    description: "App router, SSR, SSG, API routes, server components",
     resources: [
       {
         label: "Next.js Full Course – Chai aur Code",
@@ -228,7 +220,6 @@ const subjects: Subject[] = [
   {
     name: "Tailwind CSS",
     tag: "TW",
-    description: "Utility classes, responsive design, dark mode, animations",
     resources: [
       {
         label: "Tailwind CSS Full Course – Chai aur Code",
@@ -254,8 +245,7 @@ const subjects: Subject[] = [
   },
   {
     name: "Git & Version Control",
-    tag: "GIT",
-    description: "Branching, merging, rebasing, pull requests, CI/CD",
+    tag: "GIT", 
     resources: [
       {
         label: "Git & GitHub Full Course – Chai aur Code",
@@ -282,7 +272,6 @@ const subjects: Subject[] = [
   {
     name: "Web Security & Auth",
     tag: "SEC",
-    description: "JWT, OAuth, CORS, XSS, CSRF, HTTPS",
     resources: [
       {
         label: "JWT & Auth – Chai aur Code",
@@ -309,7 +298,6 @@ const subjects: Subject[] = [
   {
     name: "DevOps & Deployment",
     tag: "DEV",
-    description: "Docker, CI/CD, Vercel, AWS basics, Nginx",
     resources: [
       {
         label: "Docker for Developers – Hitesh Choudhary",
@@ -373,9 +361,7 @@ function SubjectCard({ subject }: { subject: Subject }) {
             </Badge>
             <div className="min-w-0">
               <p className="text-sm font-medium truncate">{subject.name}</p>
-              <p className="text-xs text-muted-foreground truncate hidden sm:block">
-                {subject.description}
-              </p>
+            
             </div>
           </div>
           <div className="flex items-center gap-3 shrink-0 ml-3">

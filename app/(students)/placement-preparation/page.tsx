@@ -97,16 +97,7 @@ const PlacementPrepPage = () => {
         ))}
       </div>
 
-      {/* Bottom CTA for personalization */}
-      <div className="mt-12 p-8 rounded-3xl bg-white border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="space-y-1 text-center md:text-left">
-          <h3 className="text-lg font-bold text-slate-900">Personalized Learning Roadmap</h3>
-          <p className="text-slate-500">Not sure where to start? Take a quick assessment to get a custom placement track.</p>
-        </div>
-        <button className="px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-100">
-          Start Assessment
-        </button>
-      </div>
+      
     </div>
   );
 };

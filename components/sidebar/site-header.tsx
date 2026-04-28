@@ -1,7 +1,9 @@
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { ThemeToggle } from "../ui/themeToggle"
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
 
 export function SiteHeader() {
   return (
@@ -12,6 +14,10 @@ export function SiteHeader() {
           orientation="vertical"
           className="mx-2 data-[orientation=vertical]:h-4"
         />
+
+        <Link href={"./"} className={buttonVariants({ variant: "ghost", size: "sm" })}>
+         <ArrowLeft className="h-5 w-5" />
+        </Link>
         
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle/> 

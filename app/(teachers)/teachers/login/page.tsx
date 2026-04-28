@@ -40,6 +40,7 @@ export default function LoginPage() {
     });
 
     if (error) {
+  
       setError(error.message ?? "Login failed. Please try again.");
       setLoading(false);
     } else {

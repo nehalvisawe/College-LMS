@@ -21,7 +21,6 @@ type Resource = {
 type Subject = {
   name: string;
   tag: string;
-  description: string;
   resources: Resource[];
 };
 
@@ -29,7 +28,6 @@ const subjects: Subject[] = [
   {
     name: "Data Structures & Algorithms",
     tag: "DSA",
-    description: "Arrays, trees, graphs, sorting, dynamic programming",
     resources: [
       {
         label: "DSA Full Course – Striver (take U forward)",
@@ -66,7 +64,6 @@ const subjects: Subject[] = [
   {
     name: "Operating Systems",
     tag: "OS",
-    description: "Processes, threads, memory management, scheduling",
     resources: [
       {
         label: "OS Interview Prep – Gate Smashers",
@@ -93,7 +90,6 @@ const subjects: Subject[] = [
   {
     name: "Database Management Systems",
     tag: "DBMS",
-    description: "SQL, normalization, transactions, indexing",
     resources: [
       {
         label: "DBMS Full Course – Gate Smashers",
@@ -125,7 +121,6 @@ const subjects: Subject[] = [
   {
     name: "Computer Networks",
     tag: "CN",
-    description: "TCP/IP, OSI model, routing, HTTP, DNS",
     resources: [
       {
         label: "Computer Networks – Gate Smashers",
@@ -152,7 +147,6 @@ const subjects: Subject[] = [
   {
     name: "Object Oriented Programming",
     tag: "OOP",
-    description: "Classes, inheritance, polymorphism, design patterns",
     resources: [
       {
         label: "OOP in Java – Kunal Kushwaha",
@@ -184,7 +178,6 @@ const subjects: Subject[] = [
   {
     name: "System Design",
     tag: "SD",
-    description: "Scalability, load balancing, caching, microservices",
     resources: [
       {
         label: "System Design Primer – Gaurav Sen",
@@ -216,7 +209,6 @@ const subjects: Subject[] = [
   {
     name: "Computer Organization & Architecture",
     tag: "COA",
-    description: "CPU design, pipelining, memory hierarchy, instruction sets",
     resources: [
       {
         label: "COA Full Course – Gate Smashers",
@@ -243,7 +235,6 @@ const subjects: Subject[] = [
   {
     name: "Compiler Design",
     tag: "CD",
-    description: "Lexical analysis, parsing, code generation, optimization",
     resources: [
       {
         label: "Compiler Design – Gate Smashers",
@@ -270,7 +261,6 @@ const subjects: Subject[] = [
   {
     name: "Software Engineering",
     tag: "SE",
-    description: "SDLC, Agile, design patterns, testing",
     resources: [
       {
         label: "Software Engineering – Simple Snippets",
@@ -297,7 +287,6 @@ const subjects: Subject[] = [
   {
     name: "Theory of Computation",
     tag: "TOC",
-    description: "Automata, Turing machines, NP-completeness",
     resources: [
       {
         label: "TOC Full Course – Neso Academy",
@@ -358,9 +347,7 @@ function SubjectCard({ subject }: { subject: Subject }) {
             </Badge>
             <div className="min-w-0">
               <p className="text-sm font-medium truncate">{subject.name}</p>
-              <p className="text-xs text-muted-foreground truncate hidden sm:block">
-                {subject.description}
-              </p>
+              
             </div>
           </div>
           <div className="flex items-center gap-3 shrink-0 ml-3">

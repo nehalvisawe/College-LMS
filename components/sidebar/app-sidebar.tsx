@@ -73,6 +73,11 @@ const data = {
       url: "/announcements",
       icon: IconBell,
     },
+    {
+      title: "ToDO List",
+      url: "/todo",
+      icon: IconListDetails,
+    }
   ],
   navClouds: [
     {
@@ -163,7 +168,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
        
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        
       </SidebarContent>
       <SidebarFooter>
         <NavUser />
