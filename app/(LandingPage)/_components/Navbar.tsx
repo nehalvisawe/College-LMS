@@ -12,7 +12,8 @@ import { UserDropDown } from "./UserDropdown";
 const navigationItems = [
     {name: 'Home', href: '/'},
     {name: 'Courses', href: '/courses'},
-    {name: 'Dashboard', href: '/dashboard'}
+    {name: 'About', href: '/about'},
+    {name: 'Contact', href: '/contact'}
 ]
 export function Navbar() {
     const {data: session, isPending} = authClient.useSession()
@@ -30,19 +31,10 @@ export function Navbar() {
                         ))}
                     </div>
 
-                    <div className="flex items-center space-x-4">
-                        
-
-                        {isPending ? null : session ? (
-                            <UserDropDown email={session.user.email} image={session.user.image || ""}  name={session.user.name}/>
-                        ): (
-                            <>
-                            <Link href={"/login"} className={buttonVariants({ variant: "secondary"})}>Login</Link>
-                            <Link href={"/login"} className={buttonVariants()}>Get Started</Link>
-
-                            </>
-                        )}
-
+                    <div className="flex items-center space-x-6">
+                        <Link href={"/courses"} className={buttonVariants({
+                            size: "lg",
+                        })}>Get Started</Link>
                         <ThemeToggle/>
                         
                     </div>
