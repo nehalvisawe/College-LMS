@@ -37,9 +37,11 @@ export function NavMain({
           {items.map((item) => (
             <SidebarMenuItem key={item.title} >
              
-              <SidebarMenuButton className="hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground">
+              <SidebarMenuButton className="hover:!bg-sidebar-accent hover:!text-sidebar-accent-foreground" asChild>
+                <Link href={item.url} >
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
+                </Link>
               </SidebarMenuButton>
              
             </SidebarMenuItem>

@@ -1,9 +1,10 @@
 import UnderMaintenance from "@/components/pages/UnderMaintancePage";
 
-export default function Chat(){
+export default function ChatPage() {
     return (
         <>
             <UnderMaintenance/>
         </>
     )
+    
 }
